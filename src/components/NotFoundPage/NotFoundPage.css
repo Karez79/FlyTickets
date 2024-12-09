@@ -1,0 +1,66 @@
+.not-found {
+    position: fixed; /* Используем fixed для закрепления относительно окна браузера */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Ширина на весь экран */
+    height: 100vh; /* Высота на весь экран */
+    overflow: hidden; /* Прячем всё, что выходит за пределы */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000; /* Резервный цвет фона */
+    margin: 0; /* Убираем любые отступы */
+    padding: 0; /* Убираем внутренние отступы */
+    z-index: 0; /* Базовый уровень для фона */
+  }
+  
+  .not-found__video {
+    position: absolute; /* Видео занимает весь экран */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ширина равна ширине окна */
+    height: 100%; /* Высота равна высоте окна */
+    object-fit: cover; /* Видео обрезается без искажений, чтобы заполнить экран */
+    z-index: -1; /* Отправляем видео на задний план */
+  }
+  
+  
+  .not-found__content {
+    position: relative;
+    z-index: 1; /* Текст и кнопки поверх видео */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для контента */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .not-found__title {
+    font-size: 120px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+  
+  .not-found__message {
+    font-size: 24px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+  
+  .not-found__button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #2196f3;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .not-found__button:hover {
+    background-color: #176db3;
+  }
+  

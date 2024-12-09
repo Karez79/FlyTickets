@@ -1,0 +1,21 @@
+.ticket-list {
+    display: flex;
+    justify-content: center; /* Центрируем содержимое */
+    padding: 30px;
+    gap: 30px; /* Расстояние между фильтром и билетами */
+  }
+  
+  .content-container {
+    display: flex;
+    gap: 30px; /* Расстояние между блоками */
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .ticket-container {
+    flex: 1; /* Блок билетов растягивается, занимая оставшееся пространство */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Расстояние между билетами */
+  }
+  

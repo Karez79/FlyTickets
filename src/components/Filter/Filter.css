@@ -1,0 +1,97 @@
+.filter {
+    position: sticky;
+    top: 20px;
+    width: 240px; /* Фиксированная ширина */
+    height: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .filter__title {
+    font-size: 12px; /* Заголовки */
+    font-weight: bold;
+    color: #4a4a4a; /* Темно-серый цвет */
+    text-transform: uppercase; /* Заглавные буквы */
+    margin-bottom: 10px;
+  }
+  
+  .filter__buttons {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .filter__button {
+    flex: 1;
+    padding: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #dfe5ec;
+    background-color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #4a4a4a;
+    transition: all 0.2s ease;
+  }
+  
+  .filter__button--active {
+    background-color: #2196f3;
+    color: #ffffff;
+    border-color: #2196f3;
+  }
+  
+  .filter__button:hover {
+    background-color: #f1fbff;
+  }
+  
+  .filter__checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .filter__checkbox {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #dfe5ec;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #4a4a4a;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .filter__checkbox:hover {
+    background-color: #f1fbff; /* Синий фон при наведении */
+  }
+  
+  .filter__checkbox--selected {
+    border-color: #2196f3; /* Синяя рамка для выбранного чекбокса */
+    background-color: #f1fbff; /* Фон для выбранного чекбокса */
+  }
+  
+  .filter__checkbox input[type="checkbox"] {
+    accent-color: #2196f3; /* Цвет чекбокса */
+    margin-right: 10px; /* Отступ между чекбоксом и текстом */
+  }
+  
+  .filter__link {
+    font-size: 12px;
+    color: #2196f3;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: auto;
+  }
+  
+  .filter__link:hover {
+    text-decoration: underline;
+  }
+  

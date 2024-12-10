@@ -80,7 +80,8 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+/* Меняем max-width на max-device-width для iPhone */
+@media screen and (max-device-width: 768px) {
     .not-found__title {
         font-size: 60px;
     }
@@ -94,17 +95,17 @@
         font-size: 14px;
     }
 
-    /* На мобильных устройствах скрываем видео */
+    /* Скрываем видео на мобильных устройствах */
     .not-found__video {
-        display: none;
+        display: none !important;
     }
 
     .not-found {
-        background-color: #000; /* Оставляем черный фон вместо видео */
+        background-color: #000; 
     }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-device-width: 480px) {
     .not-found__content {
         padding: 15px;
     }

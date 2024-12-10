@@ -43,7 +43,7 @@ export default function App() {
     <Router>
       <div className="app">
         <header className="app__header">
-          <img src="src/assets/biplan.png" alt="Logo" className="app__icon" />
+          <img src="/biplan.png" alt="Logo" className="app__icon" />
         </header>
         <main className="app__main">
           <Routes>

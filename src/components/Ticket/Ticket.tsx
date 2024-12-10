@@ -3,13 +3,6 @@ import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
 import { useNavigate } from 'react-router-dom';
 import { FaPlane } from 'react-icons/fa';
 
-// Импортируем изображения как модули
-import tkLogo from '../../assets/tk.png';
-import s7Logo from '../../assets/s7.png';
-import suLogo from '../../assets/su.png';
-import baLogo from '../../assets/ba.png';
-import defaultLogo from '../../assets/plane-icon.svg';
-
 interface TicketProps {
   ticket: {
     origin_name: string;
@@ -29,19 +22,20 @@ interface TicketProps {
 }
 
 function getCarrierLogo(carrier: string): string {
+  const defaultLogo = '/plane-icon.svg'; // Логотип-заглушка
   const carrierLogos: Record<string, string> = {
-    TK: tkLogo,
-    S7: s7Logo,
-    SU: suLogo,
-    BA: baLogo,
+    TK: '/tk.png',
+    S7: '/s7.png',
+    SU: '/su.png',
+    BA: '/ba.png',
   };
   return carrierLogos[carrier] || defaultLogo;
 }
 
 function getLogoClass(carrier: string): string {
   const logoClasses: Record<string, string> = {
-    SU: 'ticket__logo--su',
-    BA: 'ticket__logo--ba',
+    SU: 'ticket__logo--su', 
+    BA: 'ticket__logo--ba', 
   };
   return logoClasses[carrier] || '';
 }

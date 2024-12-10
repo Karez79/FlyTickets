@@ -17,7 +17,7 @@ export default function LoadingAnimation() {
     <div className="loading-animation">
       <div className="loading-animation__circle">
         <img
-          src="src/assets/biplan.png"
+          src="/biplan.png"
           alt="biplan"
           className="loading-animation__plane"
         />

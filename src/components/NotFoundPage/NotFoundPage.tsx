@@ -1,16 +1,8 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './NotFoundPage.css';
 
 export default function NotFoundPage() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    // Проверяем, является ли текущая загрузка перезагрузкой страницы
-    if (window.performance && window.performance.navigation && window.performance.navigation.type === window.performance.navigation.TYPE_RELOAD) {
-      navigate('/');
-    }
-  }, [navigate]);
 
   return (
     <div className="not-found">

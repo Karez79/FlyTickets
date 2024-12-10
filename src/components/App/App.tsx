@@ -12,24 +12,22 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isRatesLoading, setIsRatesLoading] = useState(true);
   const [exchangeRates, setExchangeRates] = useState<Record<Currency, number>>({
-    RUB: 1, // Базовая валюта
-    USD: 0,  // Инициализируем с 0, будет заменено
-    EUR: 0,  // Инициализируем с 0, будет заменено
+    RUB: 1,
+    USD: 0,
+    EUR: 0,
   });
 
   useEffect(() => {
     const loadExchangeRates = async () => {
       setIsRatesLoading(true);
 
-      // Загрузка курсов валют
       const rates = await fetchExchangeRates();
       setExchangeRates(rates);
 
-      // Задержка для показа анимации загрузки
       setTimeout(() => {
         setIsRatesLoading(false);
         setIsLoading(false);
-      }, 2000); // Задержка в 2 секунды
+      }, 2000);
     };
 
     loadExchangeRates();
@@ -43,7 +41,9 @@ export default function App() {
     <Router>
       <div className="app">
         <header className="app__header">
-          <img src="/biplan.png" alt="Logo" className="app__icon" />
+          <a href="https://fly-tickets.vercel.app/" target="_blank" rel="noopener noreferrer">
+            <img src="/biplan.png" alt="Logo" className="app__icon" />
+          </a>
         </header>
         <main className="app__main">
           <Routes>

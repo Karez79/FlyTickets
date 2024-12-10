@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import './LoadingAnimation.css';
+import { useState, useEffect } from "react";
+import "./LoadingAnimation.css";
 
 export default function LoadingAnimation() {
-  const messages = ['Ищем адекватные цены...', 'Загружаем билеты...'];
+  const messages = ["Ищем адекватные цены...", "Загружаем билеты..."];
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
   useEffect(() => {
@@ -23,7 +23,9 @@ export default function LoadingAnimation() {
         />
       </div>
       <div className="loading-animation__text">
-        <p className="loading-animation__message">{messages[currentMessageIndex]}</p>
+        <p className="loading-animation__message">
+          {messages[currentMessageIndex]}
+        </p>
       </div>
     </div>
   );

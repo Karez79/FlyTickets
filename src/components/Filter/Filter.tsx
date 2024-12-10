@@ -1,8 +1,8 @@
-import './Filter.css';
-import { useState, useEffect } from 'react';
-import { FaFilter } from 'react-icons/fa';
+import "./Filter.css";
+import { useState, useEffect } from "react";
+import { FaFilter } from "react-icons/fa";
 
-type Currency = 'RUB' | 'USD' | 'EUR';
+type Currency = "RUB" | "USD" | "EUR";
 
 interface FilterProps {
   onFiltersChange: (filters: number[]) => void;
@@ -11,12 +11,16 @@ interface FilterProps {
 }
 
 const currencyLabels: Record<Currency, string> = {
-  RUB: 'RUB',
-  USD: 'USD',
-  EUR: 'EUR',
+  RUB: "RUB",
+  USD: "USD",
+  EUR: "EUR",
 };
 
-export default function Filter({ onFiltersChange, onCurrencyChange, currentCurrency }: FilterProps) {
+export default function Filter({
+  onFiltersChange,
+  onCurrencyChange,
+  currentCurrency,
+}: FilterProps) {
   const [selectedStops, setSelectedStops] = useState<number[]>([]);
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
 
@@ -30,17 +34,18 @@ export default function Filter({ onFiltersChange, onCurrencyChange, currentCurre
     };
 
     updateFilterState();
-    window.addEventListener('resize', updateFilterState);
+    window.addEventListener("resize", updateFilterState);
 
-    return () => window.removeEventListener('resize', updateFilterState);
+    return () => window.removeEventListener("resize", updateFilterState);
   }, []);
 
   const handleStopChange = (stops: number) => {
-    const updatedStops = stops === -1
-      ? []
-      : selectedStops.includes(stops)
-      ? selectedStops.filter((stop) => stop !== stops)
-      : [...selectedStops, stops];
+    const updatedStops =
+      stops === -1
+        ? []
+        : selectedStops.includes(stops)
+        ? selectedStops.filter((stop) => stop !== stops)
+        : [...selectedStops, stops];
     setSelectedStops(updatedStops);
     onFiltersChange(updatedStops);
   };
@@ -57,7 +62,7 @@ export default function Filter({ onFiltersChange, onCurrencyChange, currentCurre
   const toggleFilter = () => setIsFilterOpen(!isFilterOpen);
 
   return (
-    <div className={`filter ${isFilterOpen ? 'filter--open' : ''}`}>
+    <div className={`filter ${isFilterOpen ? "filter--open" : ""}`}>
       <div className="filter__toggle" onClick={toggleFilter}>
         <FaFilter className="filter__toggle-icon" />
         <span className="filter__toggle-label">Фильтры</span>
@@ -66,11 +71,11 @@ export default function Filter({ onFiltersChange, onCurrencyChange, currentCurre
         <div className="filter__section">
           <h4 className="filter__title">Валюта</h4>
           <div className="filter__buttons">
-            {(['RUB', 'USD', 'EUR'] as Currency[]).map((currency) => (
+            {(["RUB", "USD", "EUR"] as Currency[]).map((currency) => (
               <button
                 key={currency}
                 className={`filter__button ${
-                  currentCurrency === currency ? 'filter__button--active' : ''
+                  currentCurrency === currency ? "filter__button--active" : ""
                 }`}
                 onClick={() => handleCurrencyClick(currency)}
               >
@@ -82,29 +87,40 @@ export default function Filter({ onFiltersChange, onCurrencyChange, currentCurre
         <div className="filter__section">
           <h4 className="filter__title">Количество пересадок</h4>
           <div className="filter__checkboxes">
-            {['Все', 'Без пересадок', '1 пересадка', '2 пересадки', '3 пересадки'].map(
-              (label, index) => (
-                <label
-                  key={`stop-${index}`}
-                  className={`filter__checkbox ${
-                    selectedStops.includes(index - 1) ? 'filter__checkbox--selected' : ''
-                  }`}
-                >
-                  <span>
-                    <input
-                      type="checkbox"
-                      checked={
-                        index === 0
-                          ? selectedStops.length === 0
-                          : selectedStops.includes(index - 1)
-                      }
-                      onChange={() =>
-                        index === 0 ? handleStopChange(-1) : handleStopChange(index - 1)
-                      }
-                    />
-                    {label}
-                  </span>
-                  {index > 0 && selectedStops.includes(index - 1) && selectedStops.length > 1 && (
+            {[
+              "Все",
+              "Без пересадок",
+              "1 пересадка",
+              "2 пересадки",
+              "3 пересадки",
+            ].map((label, index) => (
+              <label
+                key={`stop-${index}`}
+                className={`filter__checkbox ${
+                  selectedStops.includes(index - 1)
+                    ? "filter__checkbox--selected"
+                    : ""
+                }`}
+              >
+                <span>
+                  <input
+                    type="checkbox"
+                    checked={
+                      index === 0
+                        ? selectedStops.length === 0
+                        : selectedStops.includes(index - 1)
+                    }
+                    onChange={() =>
+                      index === 0
+                        ? handleStopChange(-1)
+                        : handleStopChange(index - 1)
+                    }
+                  />
+                  {label}
+                </span>
+                {index > 0 &&
+                  selectedStops.includes(index - 1) &&
+                  selectedStops.length > 1 && (
                     <a
                       className="filter__link"
                       onClick={(e) => {
@@ -115,9 +131,8 @@ export default function Filter({ onFiltersChange, onCurrencyChange, currentCurre
                       ТОЛЬКО
                     </a>
                   )}
-                </label>
-              )
-            )}
+              </label>
+            ))}
           </div>
         </div>
       </div>

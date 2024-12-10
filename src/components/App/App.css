@@ -1,4 +1,3 @@
-/* Базовые стили для приложения */
 .app {
   display: flex;
   flex-direction: column;
@@ -24,7 +23,6 @@
   max-width: 1200px;
 }
 
-/* Медиазапросы для адаптивности */
 @media (max-width: 1024px) {
   .app__main {
     gap: 15px;

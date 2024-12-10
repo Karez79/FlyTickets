@@ -1,25 +1,30 @@
-import { useState, useEffect, useRef } from 'react';
-import Filter from '../Filter/Filter';
-import Ticket from '../Ticket/Ticket';
-import './TicketsList.css';
-import ticketsData from '../../data/tickets.json';
+import { useState, useEffect, useRef } from "react";
+import Filter from "../Filter/Filter";
+import Ticket from "../Ticket/Ticket";
+import "./TicketsList.css";
+import ticketsData from "../../data/tickets.json";
 
 const ITEMS_PER_BATCH = 10;
 
-type Currency = 'RUB' | 'USD' | 'EUR';
+type Currency = "RUB" | "USD" | "EUR";
 
 interface TicketsListProps {
   exchangeRates: Record<Currency, number>;
   isRatesLoading: boolean;
 }
 
-export default function TicketsList({ exchangeRates, isRatesLoading }: TicketsListProps) {
+export default function TicketsList({
+  exchangeRates,
+  isRatesLoading,
+}: TicketsListProps) {
   const [filteredTickets, setFilteredTickets] = useState(
     ticketsData.tickets.sort((a, b) => a.price - b.price)
   );
   const [items, setItems] = useState(filteredTickets.slice(0, ITEMS_PER_BATCH));
-  const [hasMore, setHasMore] = useState(filteredTickets.length > ITEMS_PER_BATCH);
-  const [currency, setCurrency] = useState<Currency>('RUB');
+  const [hasMore, setHasMore] = useState(
+    filteredTickets.length > ITEMS_PER_BATCH
+  );
+  const [currency, setCurrency] = useState<Currency>("RUB");
   const [showScrollButton, setShowScrollButton] = useState(false);
   const lastBatchRef = useRef<HTMLDivElement | null>(null);
 
@@ -32,8 +37,8 @@ export default function TicketsList({ exchangeRates, isRatesLoading }: TicketsLi
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -78,7 +83,10 @@ export default function TicketsList({ exchangeRates, isRatesLoading }: TicketsLi
   };
 
   const loadMore = () => {
-    const nextItems = filteredTickets.slice(items.length, items.length + ITEMS_PER_BATCH);
+    const nextItems = filteredTickets.slice(
+      items.length,
+      items.length + ITEMS_PER_BATCH
+    );
     setItems((prevItems) => [...prevItems, ...nextItems]);
 
     if (items.length + nextItems.length >= filteredTickets.length) {
@@ -86,12 +94,12 @@ export default function TicketsList({ exchangeRates, isRatesLoading }: TicketsLi
     }
 
     setTimeout(() => {
-      lastBatchRef.current?.scrollIntoView({ behavior: 'smooth' });
+      lastBatchRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -111,18 +119,20 @@ export default function TicketsList({ exchangeRates, isRatesLoading }: TicketsLi
             >
               <Ticket
                 ticket={ticket}
-                currencySymbol={currency === 'RUB' ? '₽' : currency === 'USD' ? '$' : '€'}
+                currencySymbol={
+                  currency === "RUB" ? "₽" : currency === "USD" ? "$" : "€"
+                }
                 isLoadingRates={isRatesLoading}
               />
             </div>
           ))}
           <div className="load-more-container">
             <button
-              className={`load-more-button ${!hasMore ? 'disabled' : ''}`}
+              className={`load-more-button ${!hasMore ? "disabled" : ""}`}
               onClick={loadMore}
               disabled={!hasMore}
             >
-              {hasMore ? 'Показать еще' : 'Все билеты загружены'}
+              {hasMore ? "Показать еще" : "Все билеты загружены"}
             </button>
           </div>
         </div>

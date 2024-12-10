@@ -1,7 +1,7 @@
-import './Ticket.css';
-import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
-import { useNavigate } from 'react-router-dom';
-import { FaPlane } from 'react-icons/fa';
+import "./Ticket.css";
+import LoadingAnimation from "../LoadingAnimation/LoadingAnimation";
+import { useNavigate } from "react-router-dom";
+import { FaPlane } from "react-icons/fa";
 
 interface TicketProps {
   ticket: {
@@ -22,26 +22,26 @@ interface TicketProps {
 }
 
 function getCarrierLogo(carrier: string): string {
-  const defaultLogo = '/plane-icon.svg'; // Логотип-заглушка
+  const defaultLogo = "/plane-icon.svg"; // Логотип-заглушка
   const carrierLogos: Record<string, string> = {
-    TK: '/tk.png',
-    S7: '/s7.png',
-    SU: '/su.png',
-    BA: '/ba.png',
+    TK: "/tk.png",
+    S7: "/s7.png",
+    SU: "/su.png",
+    BA: "/ba.png",
   };
   return carrierLogos[carrier] || defaultLogo;
 }
 
 function getLogoClass(carrier: string): string {
   const logoClasses: Record<string, string> = {
-    SU: 'ticket__logo--su', 
-    BA: 'ticket__logo--ba', 
+    SU: "ticket__logo--su",
+    BA: "ticket__logo--ba",
   };
-  return logoClasses[carrier] || '';
+  return logoClasses[carrier] || "";
 }
 
 function getStopsText(stops: number): string {
-  if (stops === 0) return 'Без пересадок';
+  if (stops === 0) return "Без пересадок";
   if (stops === 1) return `${stops} пересадка`;
   if (stops > 1 && stops < 5) return `${stops} пересадки`;
   return `${stops} пересадок`;
@@ -55,7 +55,7 @@ export default function Ticket({
   const navigate = useNavigate();
 
   const handleBuyClick = () => {
-    navigate('/not-found');
+    navigate("/not-found");
   };
 
   const logoClass = getLogoClass(ticket.carrier);

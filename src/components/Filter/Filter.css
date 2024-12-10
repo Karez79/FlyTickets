@@ -1,26 +1,79 @@
 .filter {
     position: sticky;
     top: 20px;
-    width: 240px; /* Фиксированная ширина */
-    height: 400px;
-    padding: 20px;
+    width: 240px;
     background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
-    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .filter--open {
+    max-height: 400px;
+  }
+  
+  .filter:not(.filter--open) {
+    max-height: 50px;
+  }
+  
+  /* Кнопка переключения фильтра */
+  .filter__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: #2196f3;
+    font-size: 14px;
+    font-weight: bold;
+    margin: auto;
+    transition: color 0.2s ease;
+  }
+  
+  .filter__toggle:hover {
+    color: #1e87e3;
+  }
+  
+  .filter__toggle-icon {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+  
+  .filter__toggle-label {
+    font-size: 14px;
+  }
+  
+  /* Контент фильтра */
+  .filter__content {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    padding: 0 20px; /* Горизонтальные отступы */
+    height: 330px;
   }
   
+  .filter--open .filter__content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  /* Заголовки */
   .filter__title {
-    font-size: 12px; /* Заголовки */
+    font-size: 12px;
     font-weight: bold;
-    color: #4a4a4a; /* Темно-серый цвет */
-    text-transform: uppercase; /* Заглавные буквы */
+    text-transform: uppercase;
     margin-bottom: 10px;
   }
   
+  /* Кнопки валюты */
   .filter__buttons {
     display: flex;
     gap: 5px;
@@ -50,6 +103,11 @@
     background-color: #f1fbff;
   }
   
+  .filter__button--active:hover {
+    background-color: #1e87e3;
+  }
+  
+  /* Чекбоксы пересадок */
   .filter__checkboxes {
     display: flex;
     flex-direction: column;
@@ -59,7 +117,7 @@
   .filter__checkbox {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 10px 20px; /* Расширенные отступы слева и справа */
     border: 1px solid #dfe5ec;
     border-radius: 8px;
     background-color: #ffffff;
@@ -70,17 +128,17 @@
   }
   
   .filter__checkbox:hover {
-    background-color: #f1fbff; /* Синий фон при наведении */
+    background-color: #f1fbff;
   }
   
   .filter__checkbox--selected {
-    border-color: #2196f3; /* Синяя рамка для выбранного чекбокса */
-    background-color: #f1fbff; /* Фон для выбранного чекбокса */
+    border-color: #2196f3;
+    background-color: #f1fbff;
   }
   
   .filter__checkbox input[type="checkbox"] {
-    accent-color: #2196f3; /* Цвет чекбокса */
-    margin-right: 10px; /* Отступ между чекбоксом и текстом */
+    accent-color: #2196f3;
+    margin-right: 10px;
   }
   
   .filter__link {
@@ -93,5 +151,60 @@
   
   .filter__link:hover {
     text-decoration: underline;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 1024px) {
+    .filter {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: auto;
+      max-height: 50px;
+      padding: 0;
+      background: none;
+      box-shadow: none;
+      z-index: 1000;
+    }
+  
+    .filter--open {
+      max-height: 400px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .filter__toggle {
+      color: #2196f3;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .filter__title {
+      font-size: 10px;
+    }
+  
+    .filter__button {
+      padding: 6px 0;
+      font-size: 10px;
+    }
+  
+    .filter__checkbox {
+      font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .filter__title {
+      font-size: 9px;
+    }
+  
+    .filter__button {
+      padding: 5px 0;
+      font-size: 9px;
+    }
+  
+    .filter__checkbox {
+      font-size: 10px;
+    }
   }
   

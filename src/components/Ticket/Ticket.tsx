@@ -1,4 +1,7 @@
 import './Ticket.css';
+import LoadingAnimation from '../LoadingAnimation/LoadingAnimation';
+import { useNavigate } from 'react-router-dom';
+import { FaPlane } from 'react-icons/fa';
 
 interface TicketProps {
   ticket: {
@@ -14,10 +17,29 @@ interface TicketProps {
     origin: string;
     destination: string;
   };
-  onBuyClick: () => void; // Добавляем обработчик клика для кнопки
+  currencySymbol: string;
+  isLoadingRates: boolean;
 }
 
-// Функция для формирования текста пересадок
+function getCarrierLogo(carrier: string): string {
+  const defaultLogo = '/src/assets/plane-icon.svg'; // Логотип-заглушка
+  const carrierLogos: Record<string, string> = {
+    TK: '/src/assets/tk.png', 
+    S7: '/src/assets/s7.png', 
+    SU: '/src/assets/su.png', 
+    BA: '/src/assets/ba.png', 
+  };
+  return carrierLogos[carrier] || defaultLogo;
+}
+
+function getLogoClass(carrier: string): string {
+  const logoClasses: Record<string, string> = {
+    SU: 'ticket__logo--su', 
+    BA: 'ticket__logo--ba', 
+  };
+  return logoClasses[carrier] || '';
+}
+
 function getStopsText(stops: number): string {
   if (stops === 0) return 'Без пересадок';
   if (stops === 1) return `${stops} пересадка`;
@@ -25,17 +47,39 @@ function getStopsText(stops: number): string {
   return `${stops} пересадок`;
 }
 
-export default function Ticket({ ticket, onBuyClick }: TicketProps) {
+export default function Ticket({
+  ticket,
+  currencySymbol,
+  isLoadingRates,
+}: TicketProps) {
+  const navigate = useNavigate();
+
+  const handleBuyClick = () => {
+    navigate('/not-found');
+  };
+
+  const logoClass = getLogoClass(ticket.carrier);
+
   return (
     <div className="ticket">
       <div className="ticket__left">
         <img
-          src={`/assets/${ticket.carrier.toLowerCase()}.png`}
+          src={getCarrierLogo(ticket.carrier)}
           alt={`${ticket.carrier} logo`}
-          className="ticket__logo"
+          className={`ticket__logo ${logoClass}`}
         />
-        <button className="ticket__buy-button" onClick={onBuyClick}>
-          Купить за {ticket.price} ₽
+        <button
+          className="ticket__buy-button"
+          onClick={handleBuyClick}
+          disabled={isLoadingRates}
+        >
+          {isLoadingRates ? (
+            <LoadingAnimation />
+          ) : (
+            <>
+              Купить за {ticket.price} {currencySymbol}
+            </>
+          )}
         </button>
       </div>
       <div className="ticket__separator"></div>
@@ -53,7 +97,9 @@ export default function Ticket({ ticket, onBuyClick }: TicketProps) {
             <span className="ticket__stops">{getStopsText(ticket.stops)}</span>
             <div className="ticket__line">
               <div className="ticket__line-segment"></div>
-              <span className="ticket__plane">✈</span>
+              <span className="ticket__plane">
+                <FaPlane />
+              </span>
             </div>
           </div>
           <div className="ticket__time">

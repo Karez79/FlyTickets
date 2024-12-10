@@ -11,7 +11,7 @@ export default function NotFoundPage() {
         loop
         muted
         className="not-found__video"
-        src="/404.mp4"
+        src="src/assets/404.mp4"
       >
         Ваш браузер не поддерживает видео.
       </video>

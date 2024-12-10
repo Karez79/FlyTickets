@@ -1,26 +1,30 @@
+import { useState, useEffect } from 'react';
 import './LoadingAnimation.css';
 
 export default function LoadingAnimation() {
-  const messages = ['Загружаем билеты...', 'Ищем адекватные цены...'];
+  const messages = ['Ищем адекватные цены...', 'Загружаем билеты...'];
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % messages.length);
+    }, 3000); // Меняем текст каждые 3 секунды
+
+    return () => clearInterval(interval);
+  }, [messages.length]);
 
   return (
-    <main className="loading-animation">
-      <div className="loading-animation__container">
-        <div className="loading-animation__airplane">
-          <img
-            src="https://i.ibb.co/Fn6J7KH/biplan.png"
-            alt="biplan"
-            className="loading-animation__img"
-          />
-        </div>
-        <div className="loading-animation__text">
-          {messages.map((message, index) => (
-            <p key={index} className={`loading-animation__message loading-animation__message--${index}`}>
-              {message}
-            </p>
-          ))}
-        </div>
+    <div className="loading-animation">
+      <div className="loading-animation__circle">
+        <img
+          src="src/assets/biplan.png"
+          alt="biplan"
+          className="loading-animation__plane"
+        />
       </div>
-    </main>
+      <div className="loading-animation__text">
+        <p className="loading-animation__message">{messages[currentMessageIndex]}</p>
+      </div>
+    </div>
   );
 }

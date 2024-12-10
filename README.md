@@ -1,50 +1,42 @@
-# React + TypeScript + Vite
+# Сайт для покупки билетов
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание проекта
 
-Currently, two official plugins are available:
+Проект по разработке покупки билетов онлайн. Фильтрация по цене и количеству пересадок.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Используемые технологии
 
-## Expanding the ESLint configuration
+- <img src="https://img.icons8.com/color/48/000000/typescript.png" alt="TypeScript" width="15"/> [TypeScript](https://www.typescriptlang.org/)
+- <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" width="15"/> [React](https://ru.reactjs.org/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS" width="15"/>     [CSS](https://www.w3.org)
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Выполнил:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Козлов Иван - Профиль на GitHub [https://github.com/Karez79](https://github.com/Karez79)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Ссылка на Vercel:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Посмотреть сайт: [https://fly-tickets.vercel.app/](https://fly-tickets.vercel.app/)
+
+## Инструкции по установке и запуску:
+
+1. Клонируйте репозиторий: `git clone git@github.com:Karez79/FlyTickets.git`
+2. Перейдите в директорию проекта: `cd FlyTickets`
+3. Установите зависимости: `npm install`
+4. Запустите проект: `npm run dev`
+5. В браузере открываем `http://localhost:5173/`
+
+Или
+
+1. Переходим по этой ссылке: `https://github.com/Karez79/FlyTickets.git`
+2. Нажимаем `Code`
+3. Нажимаем `Download ZIP`
+4. Распаковываем скачанный архив в любое удобное место
+5. Заходим в `Visual Studio Code`, в разделе `Файл` выбираем `Открыть папку`, выбираем распакованную папку, жмём `Ok`
+6. В разделе `Терминал` выбираем `Создать терминал`
+7. Пишем в терминале: `cd FlyTickets`
+8. Установка зависимости: `npm install`
+9. Запуск проект: `npm run dev`
+10. В браузере открываем `http://localhost:5173/`

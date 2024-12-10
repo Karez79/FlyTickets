@@ -93,6 +93,10 @@
         padding: 10px 20px;
         font-size: 14px;
     }
+
+    .not-found__video {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {

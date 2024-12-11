@@ -153,57 +153,80 @@
     text-decoration: underline;
 }
 
-/* Адаптивность */
 @media (max-width: 1024px) {
     .filter {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        width: auto;
+        position: relative; /* Убираем фиксированное позиционирование */
+        margin: 20px auto; /* Центрируем фильтры под логотипом */
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 95%; /* Увеличиваем ширину */
+        max-width: 520px; /* Ограничение максимальной ширины */
         max-height: 50px;
         padding: 0;
-        background: none;
-        box-shadow: none;
+        background: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        transition: all 0.3s ease;
         z-index: 1000;
+        height: 400px;
     }
 
     .filter--open {
         max-height: 400px;
-        background-color: #ffffff;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%; /* Полная ширина при открытии */
     }
 
     .filter__toggle {
         color: #2196f3;
+        margin-top: 5px;
     }
 }
 
 @media (max-width: 768px) {
+    .filter {
+        width: 95%; /* Увеличенная ширина */
+        max-width: 480px; /* Ширина для планшетов и меньше */
+        height: 380px;
+    }
+
     .filter__title {
-        font-size: 10px;
+        font-size: 12px; /* Увеличен шрифт заголовка */
     }
 
     .filter__button {
-        padding: 6px 0;
-        font-size: 10px;
+        font-size: 12px; /* Увеличен шрифт кнопок */
+        padding: 10px 0; /* Увеличены внутренние отступы */
+        height: 40px; /* Увеличена высота кнопки */
     }
 
     .filter__checkbox {
-        font-size: 12px;
+        font-size: 14px; /* Увеличен шрифт чекбоксов */
     }
 }
 
 @media (max-width: 480px) {
+    .filter {
+        margin: 16px auto; /* Увеличиваем отступ на маленьких экранах */
+        width: 95%; /* Ширина чуть шире */
+        max-width: 460px; /* Ширина для маленьких экранов */
+    }
+
+    .filter--open {
+        max-width: 95%; /* Уменьшение ширины для маленьких экранов */
+    }
+
     .filter__title {
-        font-size: 9px;
+        font-size: 11px; /* Чуть больше шрифт заголовков */
     }
 
     .filter__button {
-        padding: 5px 0;
-        font-size: 9px;
+        font-size: 11px; /* Увеличен шрифт кнопок */
+        padding: 8px 0; /* Внутренние отступы увеличены */
+        height: 38px; /* Увеличена высота кнопки */
     }
 
     .filter__checkbox {
-        font-size: 10px;
+        font-size: 13px; /* Увеличен шрифт чекбоксов */
     }
 }

@@ -180,72 +180,68 @@
     .ticket {
         flex-direction: column;
         align-items: center;
-        padding: 6px 10px; /* Минимальные отступы */
-        gap: 8px; /* Меньшие промежутки */
-        width: 100%; /* Полная ширина */
-        max-width: 1000px; /* Максимальная ширина карточки */
+        padding: 6px 10px;
+        gap: 8px;
+        width: 100%;
+        max-width: 1000px;
     }
 
     .ticket__left {
         align-items: center;
-        gap: 6px; /* Уменьшенные промежутки */
+        gap: 6px;
     }
 
     .ticket__logo {
-        width: 70px; /* Компактный размер логотипа */
+        width: 70px;
     }
 
     .ticket__buy-button {
-        width: 260px; /* Шире кнопка для пропорции */
-        font-size: 14px; /* Компактный текст */
-        padding: 5px 10px; /* Уменьшенные внутренние отступы */
+        width: 260px;
+        font-size: 14px;
+        padding: 5px 10px;
     }
 
     .ticket__info {
-        flex-direction: row; /* Элементы располагаются в строку */
-        justify-content: space-between; /* Разделяем элементы для уменьшения высоты */
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        font-size: 14px; /* Компактный шрифт */
-        text-align: left; /* Выравнивание текста */
-        gap: 6px; /* Меньшие промежутки */
+        font-size: 14px;
+        text-align: left;
+        gap: 6px;
     }
 
     .ticket__route {
-        margin-top: 8px; /* Немного увеличен верхний отступ */
-        margin-bottom: 12px; /* Увеличен нижний отступ */
+        margin-top: 8px;
+        margin-bottom: 12px;
     }
 
     .ticket__line {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 4px; /* Меньший зазор между линией и самолётом */
-        margin-top: 8px; /* Линия и самолёт расположены ниже */
+        gap: 4px;
+        margin-top: 8px;
     }
 
     .ticket__line-segment {
-        width: 100px; /* Уменьшенная линия */
+        width: 100px;
         height: 1px;
         background-color: #ccc;
     }
 
     .ticket__plane {
-        font-size: 12px; /* Уменьшенный размер самолёта */
+        font-size: 12px;
         color: #999;
         margin-left: 2px;
-        margin-top: 2px; /* Линия ниже */
+        margin-top: 2px;
     }
 
     .ticket__details {
-        font-size: 13px; /* Компактный текст */
+        font-size: 13px;
     }
 
     .ticket__stops {
-        font-size: 12px; /* Компактный размер текста */
-        margin-bottom: 4px; /* Минимальные отступы */
+        font-size: 12px;
+        margin-bottom: 4px;
     }
 }
-
-
-
-

@@ -1,234 +1,229 @@
 .filter {
-    position: sticky;
-    top: 20px;
-    width: 240px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+  position: sticky;
+  top: 20px;
+  width: 240px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 .filter--open {
-    max-height: 400px;
+  max-height: 400px;
 }
 
 .filter:not(.filter--open) {
-    max-height: 50px;
+  max-height: 50px;
 }
 
 .filter__toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 10px;
-    background: none;
-    border: none;
-    color: #2196f3;
-    font-size: 14px;
-    font-weight: bold;
-    margin: auto;
-    transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px;
+  background: none;
+  border: none;
+  color: #2196f3;
+  font-size: 14px;
+  font-weight: bold;
+  margin: auto;
+  transition: color 0.2s ease;
 }
 
 .filter__toggle:hover {
-    color: #1e87e3;
+  color: #1e87e3;
 }
 
 .filter__toggle-icon {
-    font-size: 18px;
-    margin-right: 5px;
+  font-size: 18px;
+  margin-right: 5px;
 }
 
 .filter__toggle-label {
-    font-size: 14px;
+  font-size: 14px;
 }
 
-/* Контент фильтра */
 .filter__content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none;
-    padding: 0 20px;
-    /* Горизонтальные отступы */
-    height: 330px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  padding: 0 20px;
+  height: 330px;
 }
 
 .filter--open .filter__content {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-/* Заголовки */
 .filter__title {
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-/* Кнопки валюты */
 .filter__buttons {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 
 .filter__button {
-    flex: 1;
-    padding: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #dfe5ec;
-    background-color: #ffffff;
-    cursor: pointer;
-    text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-    color: #4a4a4a;
-    transition: all 0.2s ease;
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #dfe5ec;
+  background-color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #4a4a4a;
+  transition: all 0.2s ease;
 }
 
 .filter__button--active {
-    background-color: #2196f3;
-    color: #ffffff;
-    border-color: #2196f3;
+  background-color: #2196f3;
+  color: #ffffff;
+  border-color: #2196f3;
 }
 
 .filter__button:hover {
-    background-color: #f1fbff;
+  background-color: #f1fbff;
 }
 
 .filter__button--active:hover {
-    background-color: #1e87e3;
+  background-color: #1e87e3;
 }
 
-/* Чекбоксы пересадок */
 .filter__checkboxes {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .filter__checkbox {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    border: 1px solid #dfe5ec;
-    border-radius: 8px;
-    background-color: #ffffff;
-    font-size: 14px;
-    color: #4a4a4a;
-    cursor: pointer;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1px solid #dfe5ec;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #4a4a4a;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .filter__checkbox:hover {
-    background-color: #f1fbff;
+  background-color: #f1fbff;
 }
 
 .filter__checkbox--selected {
-    border-color: #2196f3;
-    background-color: #f1fbff;
+  border-color: #2196f3;
+  background-color: #f1fbff;
 }
 
 .filter__checkbox input[type="checkbox"] {
-    accent-color: #2196f3;
-    margin-right: 10px;
+  accent-color: #2196f3;
+  margin-right: 10px;
 }
 
 .filter__link {
-    font-size: 12px;
-    color: #2196f3;
-    cursor: pointer;
-    text-decoration: none;
-    margin-left: auto;
+  font-size: 12px;
+  color: #2196f3;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: auto;
 }
 
 .filter__link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media (max-width: 1024px) {
-    .filter {
-        position: relative; /* Убираем фиксированное позиционирование */
-        margin: 20px auto; /* Центрируем фильтры под логотипом */
-        top: auto;
-        left: auto;
-        transform: none;
-        width: 95%; /* Увеличиваем ширину */
-        max-width: 520px; /* Ограничение максимальной ширины */
-        max-height: 50px;
-        padding: 0;
-        background: #ffffff;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 12px;
-        transition: all 0.3s ease;
-        z-index: 1000;
-        height: 450px; /* Увеличена длина окна */
-    }
+  .filter {
+    position: relative;
+    margin: 20px auto;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 95%;
+    max-width: 520px;
+    max-height: 50px;
+    padding: 0;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    height: 450px;
+  }
 
-    .filter--open {
-        max-height: 400px; /* Соответствие высоте окна */
-        width: 100%; /* Полная ширина при открытии */
-    }
+  .filter--open {
+    max-height: 400px;
+    width: 100%;
+  }
 
-    .filter__toggle {
-        color: #2196f3;
-        margin-top: 5px;
-    }
+  .filter__toggle {
+    color: #2196f3;
+    margin-top: 5px;
+  }
 }
 
 @media (max-width: 768px) {
-    .filter {
-        width: 95%; /* Увеличенная ширина */
-        max-width: 480px; /* Ширина для планшетов и меньше */
-        height: 420px; /* Увеличена длина окна */
-    }
+  .filter {
+    width: 95%;
+    max-width: 480px;
+    height: 420px;
+  }
 
-    .filter__title {
-        font-size: 12px; /* Увеличен шрифт заголовка */
-    }
+  .filter__title {
+    font-size: 12px;
+  }
 
-    .filter__button {
-        font-size: 12px; /* Увеличен шрифт кнопок */
-        padding: 10px 0; /* Увеличены внутренние отступы */
-        height: 40px; /* Увеличена высота кнопки */
-    }
+  .filter__button {
+    font-size: 12px;
+    padding: 10px 0;
+    height: 40px;
+  }
 
-    .filter__checkbox {
-        font-size: 14px; /* Увеличен шрифт чекбоксов */
-    }
+  .filter__checkbox {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 480px) {
-    .filter {
-        margin: 16px auto; /* Увеличиваем отступ на маленьких экранах */
-        width: 95%; /* Ширина чуть шире */
-        max-width: 460px; /* Ширина для маленьких экранов */
-        height: 400px; /* Увеличена длина окна */
-    }
+  .filter {
+    margin: 16px auto;
+    width: 95%;
+    max-width: 460px;
+    height: 400px;
+  }
 
-    .filter--open {
-        max-width: 95%; /* Уменьшение ширины для маленьких экранов */
-        max-height: 400px; /* Увеличена длина окна */
-    }
+  .filter--open {
+    max-width: 95%;
+    max-height: 400px;
+  }
 
-    .filter__title {
-        font-size: 11px; /* Чуть больше шрифт заголовков */
-    }
+  .filter__title {
+    font-size: 11px;
+  }
 
-    .filter__button {
-        font-size: 11px; /* Увеличен шрифт кнопок */
-        padding: 8px 0; /* Внутренние отступы увеличены */
-        height: 38px; /* Увеличена высота кнопки */
-    }
+  .filter__button {
+    font-size: 11px;
+    padding: 8px 0;
+    height: 38px;
+  }
 
-    .filter__checkbox {
-        font-size: 13px; /* Увеличен шрифт чекбоксов */
-    }
+  .filter__checkbox {
+    font-size: 13px;
+  }
 }

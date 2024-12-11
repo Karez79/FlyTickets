@@ -169,11 +169,11 @@
         border-radius: 12px;
         transition: all 0.3s ease;
         z-index: 1000;
-        height: 400px;
+        height: 450px; /* Увеличена длина окна */
     }
 
     .filter--open {
-        max-height: 400px;
+        max-height: 400px; /* Соответствие высоте окна */
         width: 100%; /* Полная ширина при открытии */
     }
 
@@ -187,7 +187,7 @@
     .filter {
         width: 95%; /* Увеличенная ширина */
         max-width: 480px; /* Ширина для планшетов и меньше */
-        height: 380px;
+        height: 420px; /* Увеличена длина окна */
     }
 
     .filter__title {
@@ -210,10 +210,12 @@
         margin: 16px auto; /* Увеличиваем отступ на маленьких экранах */
         width: 95%; /* Ширина чуть шире */
         max-width: 460px; /* Ширина для маленьких экранов */
+        height: 400px; /* Увеличена длина окна */
     }
 
     .filter--open {
         max-width: 95%; /* Уменьшение ширины для маленьких экранов */
+        max-height: 400px; /* Увеличена длина окна */
     }
 
     .filter__title {
